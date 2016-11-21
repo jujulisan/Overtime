@@ -96,6 +96,4 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-  FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
-  FactoryGirl.find_definitions
 end
