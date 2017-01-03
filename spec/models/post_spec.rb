@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   describe "Creation" do
-     before do
+    before do
       @user = FactoryGirl.create(:user)
     end
   	before do
