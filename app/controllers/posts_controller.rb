@@ -1,53 +1,55 @@
 class PostsController < ApplicationController
 
 before_action :set_post, only: [:show, :edit, :update, :destroy]
-	def index
-		@posts = Post.all
-	end
+  def index
+    @posts = Post.all
+  end
 
-	def new
-		@post = Post.new
-	end
+  def new
+    @post = Post.new
+  end
 
-	def create
-		@post = Post.new(post_params)
-		@post.user_id = current_user.id
+  def create
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
 
-		if @post.save
-			redirect_to @post, notice: 'Your post was created succesfully.'
-		else
-			render :new
-		end
-	end
+    if @post.save
+      redirect_to @post, notice: 'Your post was created succesfully.'
+    else
+      render :new
+    end
+  end
 
-	def edit
+  def edit
+    authorize @post
+  end
 
-	end
+  def update
+    authorize @post
 
-	def update
-		if @post.update(post_params)
-			redirect_to @post, notice: 'Your post was edited succesfully.'
-		else
-			render :edit
-		end
-	end
+    if @post.update(post_params)
+      redirect_to @post, notice: 'Your post was edited succesfully.'
+    else
+      render :edit
+    end
+  end
 
-	def destroy
-		@post.delete
-		redirect_to posts_path, notice: 'Your post was deleted succesfully'
-	end
+  def destroy
+    @post.delete
+    redirect_to posts_path, notice: 'Your post was deleted succesfully'
+  end
 
-	def show
+  def show
 
-	end
+  end
 
-	private
+  private
 
-	def post_params
-		params.require(:post).permit(:date, :rationale, :status)
-	end
+  def post_params
+    params.require(:post).permit(:date, :rationale, :status)
+  end
 
-	def set_post
-				@post = Post.find(params[:id])
-	end
+  def set_post
+        @post = Post.find(params[:id])
+  end
 end
