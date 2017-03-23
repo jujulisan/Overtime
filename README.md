@@ -7,6 +7,7 @@
 * Post -> date:date rationale:text
 * User -> devise
 * AdminUser -> STI
+* AuditLog
 
 
 ## Features:
@@ -22,7 +23,7 @@
 ## UI:
 
 * Bootstrap -> formatting
-* Icons from Font Awesome
+* Icons from glyphicons
 * Update the styles for forms
 
 ## Refactor TODOS:
