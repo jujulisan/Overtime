@@ -23,6 +23,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.5'
+  gem 'dotenv-rails'
 end
 
 group :development do
